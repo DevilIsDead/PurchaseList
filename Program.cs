@@ -1,3 +1,6 @@
+using PurchaseList;
+using static PurchaseList.Purchases;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

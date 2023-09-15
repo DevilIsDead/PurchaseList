@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace PurchaseList.Controllers
 {
@@ -7,17 +8,18 @@ namespace PurchaseList.Controllers
     public class Controller : ControllerBase
     {
         [HttpPost]
-        public IActionResult Add([FromBody] string item)
+        public IActionResult AddPurchase([FromBody] string item)
         {
-            Purchases.AddPurchase(item);
+            AddPurchase add = new AddPurchase();
+            add.Add(item);
             return Ok();
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var result = Purchases.GetAllPurchases;
-            return new JsonResult( result);
+            var result = Purchases.GetAllPurchases();
+            return new JsonResult(result);
         }
     }
 }

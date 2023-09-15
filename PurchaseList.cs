@@ -1,12 +1,23 @@
 namespace PurchaseList
 {
-    public class Purchases
+    public interface Purchases
     {
-        private static List<string> purchaseList = new();
+        public static List<string> purchaseList = new();
 
-        public static void AddPurchase(string item) => purchaseList.Add(item);
+        public void Add(string item);
+        
 
-        public static List<string> GetAllPurchases() => purchaseList;
+        public static List<string> GetAllPurchases()
+        {
+            return purchaseList;
+        }
     }
 
+    public class AddPurchase : Purchases
+    {
+        public void Add(string item)
+        {
+            Purchases.purchaseList.Add(item);
+        }
+    }
 }
