@@ -1,11 +1,22 @@
-namespace PurchaseList
+ namespace PurchaseList
 {
-    public interface Purchases
+    public class Purchases
     {
         public static List<string> purchaseList = new();
 
-        public void Add(string item);
-        
+        public interface IAdd
+        {
+            void Add(string purchase);
+        }
+
+        public class AddPurchase : Purchases.IAdd
+        {
+            public void Add(string purchase)
+            {
+                Purchases.purchaseList.Add(purchase);
+            }
+        }
+
 
         public static List<string> GetAllPurchases()
         {
@@ -13,11 +24,5 @@ namespace PurchaseList
         }
     }
 
-    public class AddPurchase : Purchases
-    {
-        public void Add(string item)
-        {
-            Purchases.purchaseList.Add(item);
-        }
-    }
+    
 }

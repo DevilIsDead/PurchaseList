@@ -7,10 +7,11 @@ namespace PurchaseList.Controllers
     [ApiController]
     public class Controller : ControllerBase
     {
+        public Purchases.IAdd add;
+
         [HttpPost]
         public IActionResult AddPurchase([FromBody] string item)
         {
-            AddPurchase add = new AddPurchase();
             add.Add(item);
             return Ok();
         }
