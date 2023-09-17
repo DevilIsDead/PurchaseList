@@ -9,6 +9,11 @@ namespace PurchaseList.Controllers
     {
         public Purchases.IAdd add;
 
+        public Controller(Purchases.IAdd iadd)
+        {
+            add = iadd;            
+        }
+
         [HttpPost]
         public IActionResult AddPurchase([FromBody] string item)
         {
