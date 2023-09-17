@@ -4,7 +4,7 @@ using PurchaseList.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<Purchases.IAdd, Purchases.AddPurchase>();
+builder.Services.AddSingleton<Purchases, PurchaseIO>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

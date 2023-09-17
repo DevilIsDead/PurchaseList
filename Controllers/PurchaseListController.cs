@@ -7,9 +7,9 @@ namespace PurchaseList.Controllers
     [ApiController]
     public class Controller : ControllerBase
     {
-        public Purchases.IAdd add;
+        public Purchases add;
 
-        public Controller(Purchases.IAdd iadd)
+        public Controller(Purchases iadd)
         {
             add = iadd;            
         }
@@ -24,7 +24,7 @@ namespace PurchaseList.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var result = Purchases.GetAllPurchases();
+            var result = add.GetAllPurchases();
             return new JsonResult(result);
         }
     }
